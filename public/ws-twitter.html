@@ -1,0 +1,32 @@
+<script>
+
+  initWebsocket();
+
+  function initWebsocket() {
+
+    const ws = new WebSocket(`ws://localhost:8000/api/ws/twitter`);
+
+    ws.onopen = () => {
+      console.log('WebSocket open');
+    }
+
+    ws.onmessage = (message) => {
+      console.log('New message : ', message);
+
+      const div = document.createElement('div');
+      div.textContent = message.data;
+      div.setAttribute("style", "padding: 20px; font-size:50px; color: white");
+      document.body.insertBefore(div, document.body.firstChild);
+    }
+
+    ws.onclose = () => {
+      console.log('WebSocket closed, reconnect');
+      initWebsocket();
+    }
+
+  }
+
+</script>
+
+<body style="background-color:darkblue">
+</body>

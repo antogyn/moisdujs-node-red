@@ -1,0 +1,30 @@
+<script>
+
+  initWebsocket();
+
+  function initWebsocket() {
+
+    const ws = new WebSocket(`ws://localhost:8000/api/ws/test`);
+
+    ws.onopen = () => {
+      console.log('WebSocket open');
+    }
+
+    ws.onmessage = (message) => {
+      console.log('New message : ', message);
+
+      document.getElementById("temperature").textContent = `${message.data.slice(0,6)}${String.fromCharCode(176)}C` ;
+    }
+
+    ws.onclose = () => {
+      console.log('WebSocket closed, reconnect');
+      initWebsocket();
+    }
+
+  }
+
+</script>
+
+<body style="background-color: indianred">
+<span id="temperature" style="padding: 30px; font-size: 200px; color: white">....</span>
+</body>
