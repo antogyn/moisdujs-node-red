@@ -1,6 +1,10 @@
-# moisdujs node-red
+# moisdujs-node-red
+
+http://slides.com/antogyn/node-red-mois-du-js
 
 ```
+git clone https://github.com/antogyn/moisdujs-node-red.git
+cd moisdujs-node-red
 npm install
 npm start
 open localhost:8000/red # open node-red editor

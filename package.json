@@ -5,10 +5,15 @@
   "scripts": {
     "start": "node www.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antogyn/moisdujs-node-red.git"
+  },
   "engines": {
     "node": "4",
     "npm": "2"
   },
+  "license": "MIT",
   "dependencies": {
     "express": "~4.13.1",
     "node-red": "*",
